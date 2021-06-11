@@ -7,6 +7,7 @@ import {ActivityIndicator} from 'react-native';
 import {NavigationContainer} from '@react-navigation/native';
 import RootNavigation from './navigation/index';
 import {store, persistor} from './store/index';
+import AppTheme from './services/theme'
 
 export default function App() {
   return (
@@ -14,7 +15,7 @@ export default function App() {
       <PersistGate
         loading={<ActivityIndicator size="large" />}
         persistor={persistor}>
-        <NavigationContainer>
+        <NavigationContainer theme={AppTheme}>
           <RootNavigation />
         </NavigationContainer>
       </PersistGate>
