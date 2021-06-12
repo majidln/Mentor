@@ -50,7 +50,11 @@
 		<string>UIInterfaceOrientationLandscapeRight</string>
 	</array>
 	<key>NSLocationWhenInUseUsageDescription</key>
-	<string>Mentor needs to access to your location</string>
+	<string>Mentor needs to access to your location access</string>
+	<key>NSPhotoLibraryUsageDescription</key>
+	<string>Mentor needs to access to your gallery access</string>
+	<key>NSCameraUsageDescription</key>
+	<string>Mentor needs to access to your camera access</string>
 	<key>UIViewControllerBasedStatusBarAppearance</key>
 	<false/>
 </dict>
