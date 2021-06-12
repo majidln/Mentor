@@ -3,7 +3,11 @@ import {SafeAreaView, StyleSheet, Button, Text} from 'react-native';
 import {Formik} from 'formik';
 import {KeyboardAwareScrollView} from 'react-native-keyboard-aware-scroll-view';
 
-import {InputsContainer, FormikInput} from '../components/atomics';
+import {
+  InputsContainer,
+  FormikInput,
+  FormikImagePicker,
+} from '../components/atomics';
 import {useForm} from './../hooks/Step1';
 
 function HomeScreen() {
@@ -22,6 +26,7 @@ function HomeScreen() {
               <Text>values: {JSON.stringify(values)}</Text>
               <FormikInput type="text" name="firstName" label="First Name:" />
               <FormikInput type="text" name="lastName" label="Last Name:" />
+              <FormikImagePicker name="picture" label="Take picture of yourself" />
             </KeyboardAwareScrollView>
             <Button
               title={isSubmitting ? 'Loading' : 'Submit'}

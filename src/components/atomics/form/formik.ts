@@ -5,10 +5,12 @@ import {
   withNextInputAutoFocusInput,
   withInputTypePropsProps,
   setFormikInitialValueProps,
+  withFormikControl,
 } from 'react-native-formik';
 import {compose} from 'recompose';
 
 import {UserInput, UserInputProps} from './input';
+import {ImageInput, ImageInputProps} from './image';
 
 export interface FormikInputProps
   extends UserInputProps,
@@ -21,3 +23,4 @@ export const FormikInput = compose<UserInputProps, FormikInputProps>(
 )(UserInput);
 
 export const InputsContainer = withNextInputAutoFocusForm(View);
+export const FormikImagePicker = withFormikControl<ImageInputProps>(ImageInput);

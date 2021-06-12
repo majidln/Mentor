@@ -2,6 +2,7 @@ import React, {Component} from 'react';
 import {View, Text, TextInput, TextInputProps, StyleSheet} from 'react-native';
 
 import {colors} from './../../../styles';
+import {Error} from './error';
 
 export interface UserInputProps extends TextInputProps {
   label?: string;
@@ -37,7 +38,7 @@ export class UserInput extends Component<UserInputProps, {}, any> {
           style={{...styles.input, ...(error ? styles.errorInput : {})}}
           {...rest}
         />
-        <Text style={styles.error}>{error}</Text>
+        <Error error={error} />
       </View>
     );
   }
@@ -59,7 +60,7 @@ const styles = StyleSheet.create({
     flex: 1,
     fontSize: 18,
     borderWidth: 1,
-    borderColor: '#c3c3c3',
+    borderColor: colors.inputBorder,
     borderRadius: 12,
     padding: 12,
   },

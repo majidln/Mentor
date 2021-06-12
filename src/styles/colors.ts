@@ -6,4 +6,5 @@ export default {
   placeholder: 'rgba(153,153,153,1)',
   text: '#000',
   deselected: '#BBBBBB',
+  inputBorder: '#c3c3c3',
 };
