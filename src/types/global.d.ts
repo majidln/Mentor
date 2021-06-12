@@ -1,9 +1,9 @@
-export interface LatLang {
+interface LatLang {
   latitude: number;
   longitude: number;
 }
 
-export interface User {
+interface User {
   firstName: string;
   lastName: string;
   currentLocation: LatLang;
@@ -12,9 +12,9 @@ export interface User {
   jobTitle: string;
 }
 
-export interface SetUserAction {
+interface SetUserAction {
   type: string;
   payload?: Partial<User>;
 }
 
-export type UserReducer = User;
+type UserReducer = User;

@@ -1,5 +1,3 @@
-import {UserReducer, SetUserAction} from './type';
-import {User} from './type';
 import * as constants from './constants';
 
 const initialState: User = {
