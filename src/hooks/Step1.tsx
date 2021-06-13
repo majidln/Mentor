@@ -8,10 +8,10 @@ import {RootState} from './../store/reducer';
 const FormSchema = Yup.object().shape({
   firstName: Yup.string().label('First Name').min(2).required(),
   lastName: Yup.string().label('Last Name').min(2).required(),
-  // currentLocation: Yup.object().shape({
-  //   latitude: Yup.number().label('Latitude').required(),
-  //   longitude: Yup.number().label('Longitude').required(),
-  // }),
+  location: Yup.object().shape({
+    latitude: Yup.number().label('Latitude').required(),
+    longitude: Yup.number().label('Longitude').required(),
+  }),
   picture: Yup.string().label('Picture').min(2).required(),
 });
 

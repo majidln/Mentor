@@ -3,6 +3,7 @@ import {View, Text, TextInput, TextInputProps, StyleSheet} from 'react-native';
 
 import {colors} from './../../../styles';
 import {Error} from './error';
+import {InputLabel} from './label';
 
 export interface UserInputProps extends TextInputProps {
   label?: string;
@@ -28,9 +29,7 @@ export class UserInput extends Component<UserInputProps, {}, any> {
 
     return (
       <View style={styles.wrapper}>
-        <Text style={{...styles.label, ...(error ? styles.labelError : {})}}>
-          {label}
-        </Text>
+        <InputLabel label={label} error={error} />
         <TextInput
           ref={input => {
             this.input = input;

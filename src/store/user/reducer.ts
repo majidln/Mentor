@@ -4,7 +4,7 @@ const initialState: User = {
   firstName: '',
   lastName: '',
   picture: '',
-  currentLocation: {
+  location: {
     latitude: 0,
     longitude: 0,
   },

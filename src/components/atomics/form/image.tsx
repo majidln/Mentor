@@ -3,6 +3,7 @@ import {Text, StyleSheet, TouchableOpacity, View, Image} from 'react-native';
 import ImagePicker from 'react-native-image-crop-picker';
 
 import {colors} from './../../../styles';
+import {InputLabel} from './label';
 import {Error} from './error';
 
 export interface ImageInputProps {
@@ -44,8 +45,13 @@ export const ImageInput: FC<ImageInputProps> = ({
 
   return (
     <View style={styles.wrapper}>
-      <TouchableOpacity style={styles.selectWrapper} onPress={takePicture}>
-        <Text style={styles.title}>{label}</Text>
+      <InputLabel label={label} error={error} />
+      <TouchableOpacity
+        style={{
+          ...styles.selectWrapper,
+          ...(error ? styles.selectWrapperError : {}),
+        }}
+        onPress={takePicture}>
         {renderPreview}
       </TouchableOpacity>
       <Error error={error} />
@@ -63,6 +69,10 @@ const styles = StyleSheet.create({
     borderWidth: 1,
     borderColor: colors.inputBorder,
     padding: 12,
+    minHeight: 55,
+  },
+  selectWrapperError: {
+    borderColor: colors.error,
   },
   title: {
     fontSize: 18,
@@ -72,6 +82,6 @@ const styles = StyleSheet.create({
   image: {
     width: 100,
     height: 100,
-    borderRadius: 10
+    borderRadius: 10,
   },
 });

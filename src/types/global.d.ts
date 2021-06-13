@@ -6,7 +6,7 @@ interface LatLang {
 interface User {
   firstName: string;
   lastName: string;
-  currentLocation: LatLang;
+  location: LatLang;
   picture: string;
   department: string;
   jobTitle: string;
