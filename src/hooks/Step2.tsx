@@ -1,19 +1,13 @@
 import * as Yup from 'yup';
 import {FormikHelpers} from 'formik';
 import {useDispatch, useSelector} from 'react-redux';
-import {useNavigation} from '@react-navigation/native';
 
 import {setProfile} from './../store/user/actions';
 import {RootState} from './../store/reducer';
 
 const FormSchema = Yup.object().shape({
-  firstName: Yup.string().label('First Name').min(2).required(),
-  lastName: Yup.string().label('Last Name').min(2).required(),
-  location: Yup.object().shape({
-    latitude: Yup.number().label('Latitude').required(),
-    longitude: Yup.number().label('Longitude').required(),
-  }),
-  picture: Yup.string().label('Picture').min(2).required(),
+  department: Yup.string().label('Department').min(2).required(),
+  jobTitle: Yup.string().label('Job Title').min(2).required(),
 });
 
 interface StepOneHook {
@@ -24,7 +18,6 @@ interface StepOneHook {
 
 export const useForm = (): StepOneHook => {
   const dispatch = useDispatch();
-  const navigation = useNavigation();
   const preUserData = useSelector((state: RootState) => state.user);
 
   const initialValues: Partial<User> = preUserData;
@@ -41,8 +34,7 @@ export const useForm = (): StepOneHook => {
 
     setTimeout(() => {
       actions.setSubmitting(false);
-      navigation.navigate('FormStepTwoScreen')
-    }, 1000);
+    }, 2000);
   };
 
   return {

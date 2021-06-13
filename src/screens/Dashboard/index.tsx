@@ -2,8 +2,8 @@ import * as React from 'react';
 import {SafeAreaView, StyleSheet} from 'react-native';
 import {useNavigation} from '@react-navigation/native';
 
-import DashboardCard from './../components/screens/dashboard/card';
-import DashboardUserInfo from './../components/screens/dashboard/userInfo';
+import DashboardCard from './../../components/screens/dashboard/card';
+import DashboardUserInfo from './../../components/screens/dashboard/userInfo';
 
 function HomeScreen() {
   const navigation = useNavigation();
@@ -13,7 +13,7 @@ function HomeScreen() {
       <DashboardUserInfo />
       <DashboardCard
         title="Complete my Account"
-        onPress={() => navigation.navigate('FormScreen')}
+        onPress={() => navigation.navigate('FormStepOneScreen')}
       />
     </SafeAreaView>
   );
