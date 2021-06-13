@@ -1,10 +1,11 @@
 import React, {FC, ReactElement, useMemo} from 'react';
-import {Text, StyleSheet, TouchableOpacity, View, Image} from 'react-native';
+import { StyleSheet, TouchableOpacity, View, Image} from 'react-native';
 import ImagePicker from 'react-native-image-crop-picker';
 
 import {colors} from './../../../styles';
 import {InputLabel} from './label';
 import {Error} from './error';
+import {Avatar} from './../index';
 
 export interface ImageInputProps {
   label: string;
@@ -30,19 +31,6 @@ export const ImageInput: FC<ImageInputProps> = ({
     });
   };
 
-  const renderPreview = useMemo(() => {
-    if (value) {
-      return (
-        <Image
-          style={styles.image}
-          resizeMode="contain"
-          source={{uri: value}}
-        />
-      );
-    }
-    return null;
-  }, [value]);
-
   return (
     <View style={styles.wrapper}>
       <InputLabel label={label} error={error} />
@@ -52,7 +40,7 @@ export const ImageInput: FC<ImageInputProps> = ({
           ...(error ? styles.selectWrapperError : {}),
         }}
         onPress={takePicture}>
-        {renderPreview}
+          <Avatar picture={value} />
       </TouchableOpacity>
       <Error error={error} />
     </View>
