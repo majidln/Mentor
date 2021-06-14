@@ -2,7 +2,7 @@ import * as React from 'react';
 import {SafeAreaView, StyleSheet, FlatList, Button} from 'react-native';
 
 import {employees} from '../../data/employees';
-import EmployeeItem from '../../components/screens/Employee/item';
+import EmployeeItem from '../../components/screens/Employee/action';
 import {useManage} from './../../hooks/Manage';
 
 function ManageScreen() {

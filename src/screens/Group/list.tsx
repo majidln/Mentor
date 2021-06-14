@@ -1,15 +1,20 @@
 import * as React from 'react';
-import {SafeAreaView, StyleSheet, Text, FlatList, Button} from 'react-native';
+import {SafeAreaView, StyleSheet, Text, FlatList} from 'react-native';
 import {useSelector} from 'react-redux';
 
 import {RootState} from './../../store/reducer';
+import GroupItem from './../../components/screens/Group/item'
 
 function GroupListScreen() {
-  const group = useSelector((state: RootState) => state.group);
+  const groups = useSelector((state: RootState) => state.group);
 
   return (
     <SafeAreaView style={styles.wrapper}>
-      <Text>{JSON.stringify(group)}</Text>
+      <FlatList
+        data={groups}
+        renderItem={({item}) => <GroupItem group={item} />}
+        keyExtractor={(_, index) => index.toString()}
+      />
     </SafeAreaView>
   );
 }

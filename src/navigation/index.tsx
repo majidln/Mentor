@@ -6,6 +6,7 @@ import FormStepOneScreen from '../screens/UserForm/step1';
 import FormStepTwoScreen from '../screens/UserForm/step2';
 import EmployeeScreen from '../screens/Employee/manage';
 import GroupListScreen from '../screens/Group/list';
+import {HeaderIcon} from '../components/atomics';
 
 const Stack = createStackNavigator();
 
@@ -13,7 +14,15 @@ function RootNavigation() {
   return (
     <Stack.Navigator initialRouteName="Dashboard">
       <Stack.Screen
-        options={{title: 'Dashboard'}}
+        options={({navigation}) => ({
+          title: 'Dashboard',
+          headerRight: () => (
+            <HeaderIcon
+              title="Groups"
+              onPress={() => navigation.navigate('GroupListScreen')}
+            />
+          ),
+        })}
         name="Dashboard"
         component={DashboardScreen}
       />

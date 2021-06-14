@@ -1,33 +1,17 @@
 import React, {FC, ReactElement, useMemo} from 'react';
 import {Text, StyleSheet, View, TouchableOpacity} from 'react-native';
 
-import { colors } from '../../../styles';
-import {KeyValue} from './../../atomics';
+import {colors} from '../../../styles';
+import {KeyValue} from '../../atomics';
 
 interface EmployeeItemProps {
   employee: Employee;
 }
 
-const EmployeeItem: FC<EmployeeItemProps> = ({
-  employee,
-  children,
-}): ReactElement => {
+const EmployeeItem: FC<EmployeeItemProps> = ({employee}): ReactElement => {
   return (
     <View style={styles.wrapper}>
-      <View style={styles.nameWrapper}>
-        <Text style={styles.name}>
-          {employee.first_name + ' ' + employee.last_name}
-        </Text>
-        <Text>{employee.gender}</Text>
-      </View>
-      <KeyValue
-        label="From"
-        value={`${employee.country + ' ' + employee.city}`}
-      />
-      <KeyValue label="Email" value={employee.email} />
-      <KeyValue label="Department" value={employee.department} />
-      <KeyValue label="Job Title" value={employee.job_title} />
-      {children}
+      <Text>{employee.first_name}</Text>
     </View>
   );
 };

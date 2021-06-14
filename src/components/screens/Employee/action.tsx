@@ -3,32 +3,36 @@ import {Text, StyleSheet, View, TouchableOpacity} from 'react-native';
 
 import { colors } from '../../../styles';
 import {KeyValue} from './../../atomics';
+import Item from './item';
 
 interface EmployeeItemProps {
   employee: Employee;
+  isSelected: boolean;
+  onSelect?: (employee: Employee) => void;
+  onDeSelect?: (employee: Employee) => void;
 }
 
 const EmployeeItem: FC<EmployeeItemProps> = ({
   employee,
-  children,
+  isSelected = false,
+  onSelect = () => null,
+  onDeSelect = () => null,
 }): ReactElement => {
+  const renderButton = useMemo(() => {
+    return (
+      <TouchableOpacity
+        onPress={() =>
+          isSelected ? onDeSelect(employee) : onSelect(employee)
+        }>
+        <Text style={styles.action}>{isSelected ? 'Unselect' : 'Select'}</Text>
+      </TouchableOpacity>
+    );
+  }, [isSelected, onDeSelect, employee, onSelect]);
+
   return (
-    <View style={styles.wrapper}>
-      <View style={styles.nameWrapper}>
-        <Text style={styles.name}>
-          {employee.first_name + ' ' + employee.last_name}
-        </Text>
-        <Text>{employee.gender}</Text>
-      </View>
-      <KeyValue
-        label="From"
-        value={`${employee.country + ' ' + employee.city}`}
-      />
-      <KeyValue label="Email" value={employee.email} />
-      <KeyValue label="Department" value={employee.department} />
-      <KeyValue label="Job Title" value={employee.job_title} />
-      {children}
-    </View>
+    <Item employee={employee}>
+      <View style={styles.actionWrapper}>{renderButton}</View>
+    </Item>
   );
 };
 

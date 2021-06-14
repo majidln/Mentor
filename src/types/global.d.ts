@@ -19,10 +19,10 @@ interface SetUserAction {
 
 interface AddGroupAction {
   type: string;
-  payload?: Array<Employee>;
+  payload: Array<Employee>;
 }
 
-type UserReducer = User | Array<Employee>;
+type UserReducer = User | Array<Array<Employee>>;
 
 interface Employee {
   id: number;

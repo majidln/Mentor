@@ -1,6 +1,6 @@
 import * as constants from './constants';
 
-const initialState: Array<Employee> = [];
+const initialState: Array<Array<Employee>> = [];
 
 export default function reducer(
   state = initialState,
@@ -8,10 +8,7 @@ export default function reducer(
 ): UserReducer {
   switch (action.type) {
     case constants.ADD_NEW_GROUP:
-      return {
-        ...state,
-        ...action.payload,
-      };
+      return [...state, action.payload];
     default:
       return state;
   }
