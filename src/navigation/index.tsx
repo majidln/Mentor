@@ -42,9 +42,17 @@ function RootNavigation() {
         component={EmployeeScreen}
       />
       <Stack.Screen
-        options={{title: 'My Groups'}}
         name="GroupListScreen"
         component={GroupListScreen}
+        options={({navigation}) => ({
+          title: 'My Groups',
+          headerRight: () => (
+            <HeaderIcon
+              title="Add new"
+              onPress={() => navigation.navigate('EmployeeScreen')}
+            />
+          ),
+        })}
       />
     </Stack.Navigator>
   );

@@ -22,7 +22,7 @@ const styles = StyleSheet.create({
   wrapper: {
     padding: 8,
     borderRadius: 12,
-    borderWidth: 1,
+    borderWidth: 2,
     marginBottom: 12,
     borderColor: colors.inputBorder,
   },
