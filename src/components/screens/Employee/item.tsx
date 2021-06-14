@@ -1,6 +1,7 @@
 import React, {FC, ReactElement, useMemo} from 'react';
 import {Text, StyleSheet, View, TouchableOpacity} from 'react-native';
 
+import { colors } from '../../../styles';
 import {KeyValue} from './../../atomics';
 
 interface EmployeeItemProps {
@@ -53,6 +54,7 @@ const styles = StyleSheet.create({
     borderRadius: 12,
     borderWidth: 1,
     marginBottom: 12,
+    borderColor: colors.inputBorder,
   },
   nameWrapper: {
     flexDirection: 'row',

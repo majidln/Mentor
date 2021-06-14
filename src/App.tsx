@@ -4,6 +4,7 @@ import {Provider} from 'react-redux';
 import {PersistGate} from 'redux-persist/integration/react';
 import {ActivityIndicator} from 'react-native';
 import SplashScreen from 'react-native-splash-screen';
+import Toast from 'react-native-toast-message';
 
 import {NavigationContainer} from '@react-navigation/native';
 import RootNavigation from './navigation/index';
@@ -16,14 +17,17 @@ export default function App() {
   }, []);
 
   return (
-    <Provider store={store}>
-      <PersistGate
-        loading={<ActivityIndicator size="large" />}
-        persistor={persistor}>
-        <NavigationContainer theme={AppTheme}>
-          <RootNavigation />
-        </NavigationContainer>
-      </PersistGate>
-    </Provider>
+    <>
+      <Provider store={store}>
+        <PersistGate
+          loading={<ActivityIndicator size="large" />}
+          persistor={persistor}>
+          <NavigationContainer theme={AppTheme}>
+            <RootNavigation />
+          </NavigationContainer>
+        </PersistGate>
+      </Provider>
+      <Toast ref={ref => Toast.setRef(ref)} />
+    </>
   );
 }

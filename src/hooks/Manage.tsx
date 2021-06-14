@@ -1,4 +1,5 @@
 import {useState} from 'react';
+import Toast from 'react-native-toast-message';
 
 interface ManageHook {
   selectedEmployees: Array<Employee>;
@@ -9,9 +10,19 @@ interface ManageHook {
 }
 
 export const useManage = (): ManageHook => {
-  const [selectedEmployees, setSelectedEmployees] = useState<Array<Employee>>([]);
+  const [selectedEmployees, setSelectedEmployees] = useState<Array<Employee>>(
+    [],
+  );
 
   const selectItem = (employee: Employee) => {
+    if (selectedEmployees.length > 4) {
+      Toast.show({
+        type: 'info',
+        text1: "You can't add more then 5 employees to your group",
+        position: 'bottom',
+      });
+      return;
+    }
     // check if employee is in the list
     if (!isSelected(employee)) {
       // employee does not exist in the selectedEmployees list so we add that
