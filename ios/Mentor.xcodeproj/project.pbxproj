@@ -145,7 +145,6 @@
 				204E504781BA859C669D0EA6 /* Pods-Mentor-MentorTests.debug.xcconfig */,
 				6DA21821162F8186A1C14F10 /* Pods-Mentor-MentorTests.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
