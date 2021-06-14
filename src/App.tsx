@@ -3,8 +3,7 @@ import React, {useEffect} from 'react';
 import {Provider} from 'react-redux';
 import {PersistGate} from 'redux-persist/integration/react';
 import {ActivityIndicator} from 'react-native';
-import SplashScreen from 'react-native-splash-screen'
-
+import SplashScreen from 'react-native-splash-screen';
 
 import {NavigationContainer} from '@react-navigation/native';
 import RootNavigation from './navigation/index';
