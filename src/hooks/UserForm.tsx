@@ -53,7 +53,11 @@ export const useForm = (step: UserFormStep): StepOneHook => {
 
     setTimeout(() => {
       actions.setSubmitting(false);
-      navigation.navigate('FormStepTwoScreen');
+      if (step === UserFormStep.ONE) {
+        navigation.navigate('FormStepTwoScreen');
+      } else if (step === UserFormStep.TWO) {
+        navigation.navigate('GroupListScreen');
+      }
     }, 500);
   };
 

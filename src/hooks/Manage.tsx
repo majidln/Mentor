@@ -1,5 +1,9 @@
 import {useState} from 'react';
 import Toast from 'react-native-toast-message';
+import {useDispatch} from 'react-redux';
+import {useNavigation} from '@react-navigation/native';
+
+import {addGroup} from '../store/group/actions';
 
 interface ManageHook {
   selectedEmployees: Array<Employee>;
@@ -7,9 +11,12 @@ interface ManageHook {
   selectItem: (employee: Employee) => void;
   deSelectItem: (employee: Employee) => void;
   selectedCount: number;
+  onSubmit: () => void;
 }
 
 export const useManage = (): ManageHook => {
+  const dispatch = useDispatch();
+  const navigation = useNavigation();
   const [selectedEmployees, setSelectedEmployees] = useState<Array<Employee>>(
     [],
   );
@@ -48,11 +55,25 @@ export const useManage = (): ManageHook => {
     return index !== -1;
   };
 
+  const onSubmit = () => {
+    if (selectedEmployees.length === 0) {
+      Toast.show({
+        type: 'info',
+        text1: 'Select an employee',
+        position: 'bottom',
+      });
+      return;
+    }
+    dispatch(addGroup(selectedEmployees));
+    navigation.replace('GroupListScreen');
+  };
+
   return {
     selectedEmployees,
     isSelected,
     selectItem,
     deSelectItem,
     selectedCount: selectedEmployees.length,
+    onSubmit,
   };
 };

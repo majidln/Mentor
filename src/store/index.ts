@@ -13,7 +13,7 @@ middleware.push(logger);
 const persistConfig = {
   key: 'root',
   storage: AsyncStorage,
-  whitelist: ['user'],
+  whitelist: ['user', 'group'],
 };
 
 const persistedReducer = persistReducer(persistConfig, rootReducer);

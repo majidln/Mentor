@@ -6,7 +6,7 @@ import EmployeeItem from '../../components/screens/Employee/item';
 import {useManage} from './../../hooks/Manage';
 
 function ManageScreen() {
-  const {selectItem, deSelectItem, isSelected, selectedCount} = useManage();
+  const {selectItem, deSelectItem, isSelected, selectedCount, onSubmit} = useManage();
 
   return (
     <SafeAreaView style={styles.wrapper}>
@@ -26,7 +26,7 @@ function ManageScreen() {
       {selectedCount > 0 && (
         <Button
           title={'Continue with ' + selectedCount + ' Colleagues'}
-          onPress={() => null}
+          onPress={onSubmit}
         />
       )}
     </SafeAreaView>

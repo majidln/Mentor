@@ -5,6 +5,7 @@ import DashboardScreen from './../screens/Dashboard';
 import FormStepOneScreen from '../screens/UserForm/step1';
 import FormStepTwoScreen from '../screens/UserForm/step2';
 import EmployeeScreen from '../screens/Employee/manage';
+import GroupListScreen from '../screens/Group/list';
 
 const Stack = createStackNavigator();
 
@@ -30,6 +31,11 @@ function RootNavigation() {
         options={{title: 'Create Group'}}
         name="EmployeeScreen"
         component={EmployeeScreen}
+      />
+      <Stack.Screen
+        options={{title: 'My Groups'}}
+        name="GroupListScreen"
+        component={GroupListScreen}
       />
     </Stack.Navigator>
   );

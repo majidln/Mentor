@@ -17,7 +17,12 @@ interface SetUserAction {
   payload?: Partial<User>;
 }
 
-type UserReducer = User;
+interface AddGroupAction {
+  type: string;
+  payload?: Array<Employee>;
+}
+
+type UserReducer = User | Array<Employee>;
 
 interface Employee {
   id: number;
