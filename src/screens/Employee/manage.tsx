@@ -1,17 +1,17 @@
 import * as React from 'react';
-import {SafeAreaView, StyleSheet, FlatList} from 'react-native';
+import {SafeAreaView, StyleSheet, FlatList, Button} from 'react-native';
 
 import {employees} from '../../data/employees';
 import EmployeeItem from '../../components/screens/Employee/item';
 import {useManage} from './../../hooks/Manage';
 
 function ManageScreen() {
-  const {selectItem, deSelectItem, selectedEmployee, isSelected} = useManage();
-  console.log('selectedEmployee', selectedEmployee);
+  const {selectItem, deSelectItem, isSelected, selectedCount} = useManage();
 
   return (
     <SafeAreaView style={styles.wrapper}>
       <FlatList<Employee>
+        style={styles.list}
         data={employees}
         keyExtractor={item => item.email}
         renderItem={({item}) => (
@@ -23,6 +23,12 @@ function ManageScreen() {
           />
         )}
       />
+      {selectedCount > 0 && (
+        <Button
+          title={'Continue with ' + selectedCount + ' Colleagues'}
+          onPress={() => null}
+        />
+      )}
     </SafeAreaView>
   );
 }
@@ -32,12 +38,8 @@ const styles = StyleSheet.create({
     flex: 1,
     margin: 12,
   },
-  formWrapper: {
+  list: {
     flex: 1,
-  },
-  scrollWrapper: {
-    flex: 1,
-    marginBottom: 20,
   },
 });
 

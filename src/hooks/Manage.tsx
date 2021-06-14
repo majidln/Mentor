@@ -1,47 +1,47 @@
 import {useState} from 'react';
 
 interface ManageHook {
-  selectedEmployee: Array<Employee>;
+  selectedEmployees: Array<Employee>;
   isSelected: (employee: Employee) => boolean;
   selectItem: (employee: Employee) => void;
   deSelectItem: (employee: Employee) => void;
+  selectedCount: number;
 }
 
 export const useManage = (): ManageHook => {
-  const [selectedEmployee, setSelectedEmployee] = useState<Array<Employee>>([]);
+  const [selectedEmployees, setSelectedEmployees] = useState<Array<Employee>>([]);
 
   const selectItem = (employee: Employee) => {
     // check if employee is in the list
     if (!isSelected(employee)) {
-      // employee does not exist in the selectedEmployee list so we add that
-      setSelectedEmployee([...selectedEmployee, employee]);
+      // employee does not exist in the selectedEmployees list so we add that
+      setSelectedEmployees([...selectedEmployees, employee]);
     }
   };
 
   const deSelectItem = (employee: Employee) => {
-    const newArray = [...selectedEmployee];
+    const newArray = [...selectedEmployees];
     const index = newArray.findIndex(
       (empItem: Employee) => empItem.id === employee.id,
     );
     if (index !== -1) {
       newArray.splice(index, 1);
-      setSelectedEmployee(newArray)
+      setSelectedEmployees(newArray);
     }
-
   };
 
   const isSelected = (employee: Employee) => {
-    const index: number = selectedEmployee.findIndex(
+    const index: number = selectedEmployees.findIndex(
       (empItem: Employee) => empItem.id === employee.id,
     );
-    console.log('isSelected', employee.id, index, index !== -1)
     return index !== -1;
   };
 
   return {
-    selectedEmployee,
+    selectedEmployees,
     isSelected,
     selectItem,
     deSelectItem,
+    selectedCount: selectedEmployees.length,
   };
 };
