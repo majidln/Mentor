@@ -3,8 +3,8 @@ import {FormikHelpers} from 'formik';
 import {useDispatch, useSelector} from 'react-redux';
 import {useNavigation} from '@react-navigation/native';
 
-import {setProfile} from './../store/user/actions';
-import {RootState} from './../store/reducer';
+import {setProfile} from '../store/user/actions';
+import {RootState} from '../store/reducer';
 
 export enum UserFormStep {
   ONE = 'One',

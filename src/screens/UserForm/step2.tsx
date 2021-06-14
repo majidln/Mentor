@@ -4,7 +4,7 @@ import {Formik} from 'formik';
 import {KeyboardAwareScrollView} from 'react-native-keyboard-aware-scroll-view';
 
 import {InputsContainer, FormikInput} from '../../components/atomics';
-import {useForm, UserFormStep} from './../../hooks/UserForm';
+import {useForm, UserFormStep} from '../../hooks/UserForm';
 
 function HomeScreen() {
   const {onSubmit, initialValues, validationSchema} = useForm(UserFormStep.TWO);

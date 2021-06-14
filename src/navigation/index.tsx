@@ -2,8 +2,9 @@ import * as React from 'react';
 import {createStackNavigator} from '@react-navigation/stack';
 
 import DashboardScreen from './../screens/Dashboard';
-import FormStepOneScreen from './../screens/Form/step1';
-import FormStepTwoScreen from './../screens/Form/step2';
+import FormStepOneScreen from '../screens/UserForm/step1';
+import FormStepTwoScreen from '../screens/UserForm/step2';
+import EmployeeScreen from '../screens/Employee/manage';
 
 const Stack = createStackNavigator();
 
@@ -24,6 +25,11 @@ function RootNavigation() {
         options={{title: 'Job Information'}}
         name="FormStepTwoScreen"
         component={FormStepTwoScreen}
+      />
+      <Stack.Screen
+        options={{title: 'Create Group'}}
+        name="EmployeeScreen"
+        component={EmployeeScreen}
       />
     </Stack.Navigator>
   );

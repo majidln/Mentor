@@ -53,7 +53,7 @@ const styles = StyleSheet.create({
   shareWrapper: {
     flexDirection: 'row-reverse',
     paddingVertical: 10,
-  }
+  },
 });
 
 export default DashboardUserInfo;

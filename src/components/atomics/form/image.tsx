@@ -1,5 +1,5 @@
 import React, {FC, ReactElement, useMemo} from 'react';
-import { StyleSheet, TouchableOpacity, View, Image} from 'react-native';
+import {StyleSheet, TouchableOpacity, View, Image} from 'react-native';
 import ImagePicker from 'react-native-image-crop-picker';
 
 import {colors} from './../../../styles';
@@ -40,7 +40,7 @@ export const ImageInput: FC<ImageInputProps> = ({
           ...(error ? styles.selectWrapperError : {}),
         }}
         onPress={takePicture}>
-          <Avatar picture={value} />
+        <Avatar picture={value} />
       </TouchableOpacity>
       <Error error={error} />
     </View>

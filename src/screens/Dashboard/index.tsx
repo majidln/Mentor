@@ -1,5 +1,5 @@
 import * as React from 'react';
-import {SafeAreaView, StyleSheet} from 'react-native';
+import {SafeAreaView, StyleSheet, View} from 'react-native';
 import {useNavigation} from '@react-navigation/native';
 
 import DashboardCard from './../../components/screens/dashboard/card';
@@ -11,10 +11,16 @@ function HomeScreen() {
   return (
     <SafeAreaView style={styles.wrapper}>
       <DashboardUserInfo />
-      <DashboardCard
-        title="Complete my Account"
-        onPress={() => navigation.navigate('FormStepOneScreen')}
-      />
+      <View>
+        <DashboardCard
+          title="Create your group"
+          onPress={() => navigation.navigate('EmployeeScreen')}
+        />
+        <DashboardCard
+          title="Complete my Account"
+          onPress={() => navigation.navigate('FormStepOneScreen')}
+        />
+      </View>
     </SafeAreaView>
   );
 }

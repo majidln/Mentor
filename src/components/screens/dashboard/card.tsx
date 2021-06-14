@@ -1,5 +1,5 @@
 import React, {FC, ReactElement} from 'react';
-import {View, Text, StyleSheet, TouchableOpacity} from 'react-native';
+import {Text, StyleSheet, TouchableOpacity} from 'react-native';
 
 interface DashboardCardProps {
   title: string;
@@ -22,7 +22,8 @@ const styles = StyleSheet.create({
     borderRadius: 8,
     borderWidth: 1,
     borderColor: '#000',
-    padding: 20,
+    padding: 10,
+    marginBottom: 8,
   },
   title: {
     fontSize: 22,

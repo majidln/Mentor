@@ -9,7 +9,7 @@ import {
   FormikImagePicker,
   FormikLocationInput,
 } from '../../components/atomics';
-import {useForm, UserFormStep} from './../../hooks/UserForm';
+import {useForm, UserFormStep} from '../../hooks/UserForm';
 
 function HomeScreen() {
   const {onSubmit, initialValues, validationSchema} = useForm(UserFormStep.ONE);
