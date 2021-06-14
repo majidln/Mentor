@@ -7,7 +7,7 @@ export interface AvatarProps {
 
 const IMAGE_SIZE = 120;
 
-const AvatarComp: FC<AvatarProps> = ({picture = ''}): ReactElement => {
+export const AvatarComp: FC<AvatarProps> = ({picture = ''}): ReactElement => {
   if (!picture) {
     return <View />;
   }

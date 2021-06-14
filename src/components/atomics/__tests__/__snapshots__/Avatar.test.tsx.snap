@@ -1,0 +1,27 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Test for atomic Avatar Avatar Snapshot renders correctly 1`] = `
+<View
+  style={
+    Object {
+      "alignItems": "center",
+    }
+  }
+>
+  <Image
+    resizeMode="contain"
+    source={
+      Object {
+        "uri": "my_avatar",
+      }
+    }
+    style={
+      Object {
+        "borderRadius": 60,
+        "height": 120,
+        "width": 120,
+      }
+    }
+  />
+</View>
+`;
