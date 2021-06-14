@@ -1,5 +1,5 @@
 import * as React from 'react';
-import {SafeAreaView, StyleSheet, Button, Text} from 'react-native';
+import {SafeAreaView, StyleSheet, Button} from 'react-native';
 import {Formik} from 'formik';
 import {KeyboardAwareScrollView} from 'react-native-keyboard-aware-scroll-view';
 
@@ -9,10 +9,10 @@ import {
   FormikImagePicker,
   FormikLocationInput,
 } from '../../components/atomics';
-import {useForm} from './../../hooks/Step1';
+import {useForm, UserFormStep} from './../../hooks/UserForm';
 
 function HomeScreen() {
-  const {onSubmit, initialValues, validationSchema} = useForm();
+  const {onSubmit, initialValues, validationSchema} = useForm(UserFormStep.ONE);
 
   return (
     <SafeAreaView style={styles.wrapper}>
@@ -20,11 +20,9 @@ function HomeScreen() {
         initialValues={initialValues}
         validationSchema={validationSchema}
         onSubmit={onSubmit}>
-        {({values, errors, handleSubmit, isSubmitting}) => (
+        {({handleSubmit, isSubmitting}) => (
           <InputsContainer style={styles.formWrapper}>
             <KeyboardAwareScrollView style={styles.scrollWrapper}>
-              <Text>errors: {JSON.stringify(errors)}</Text>
-              <Text>values: {JSON.stringify(values)}</Text>
               <FormikInput type="name" name="firstName" label="First Name:" />
               <FormikInput type="name" name="lastName" label="Last Name:" />
               <FormikImagePicker
