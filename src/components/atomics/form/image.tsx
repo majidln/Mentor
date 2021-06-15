@@ -1,5 +1,5 @@
-import React, {FC, ReactElement, useMemo} from 'react';
-import {StyleSheet, TouchableOpacity, View, Image} from 'react-native';
+import React, {FC, ReactElement} from 'react';
+import {StyleSheet, TouchableOpacity, View, Platform} from 'react-native';
 import ImagePicker from 'react-native-image-crop-picker';
 
 import {colors} from './../../../styles';
@@ -21,14 +21,26 @@ export const ImageInput: FC<ImageInputProps> = ({
   setFieldValue = () => null,
 }): ReactElement => {
   const takePicture = () => {
-    ImagePicker.openCamera({
+    const options = {
       width: 512,
       height: 512,
       cropping: true,
-    }).then(image => {
-      console.log(image);
-      setFieldValue(image.path);
-    });
+      multiple: false,
+      useFrontCamera: true,
+    };
+    if (Platform.OS === 'android') {
+      ImagePicker.openCamera(options).then(image => {
+        setFieldValue(image.path);
+      });
+    } else {
+      // because Ios simulator can not capture image from front camera
+      // So I use pick image from gallery in the ios
+      ImagePicker.openPicker(options).then(image => {
+        if (image?.sourceURL) {
+          setFieldValue(image.sourceURL);
+        }
+      });
+    }
   };
 
   return (
