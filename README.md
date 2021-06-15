@@ -74,3 +74,18 @@ For the security concerns you can add encrypt [redux-persist-transform-encrypt](
 ### Formik
 [Formik](https://formik.org/) is the most powerful packages for the handling forms in React based project. For the react-native project we compose react-native-formik and recompose package to create each filed types like Location, Image, TextInput and etc.
 
+### React Native Splash
+For add Splash to Ios project I only change the LaunchScreen.storyboard file.
+For android side I used [React Native Splash](https://github.com/crazycodeboy/react-native-splash-screen) to configure and show/hide the splash layout in the MainActivity.
+
+## How to extend this into a production version
+
+There is some steps before publish this developed application to the market
+ - Remove all console statement in the code. For this purpose you can use [babel-plugin-transform-remove-console](https://www.npmjs.com/package/babel-plugin-transform-remove-console).
+ - Squash Images.
+ - Remove Default Android Permissions.
+ - Consider Enabling ProGuard & Hermes Engine.
+ - Check Startup Speed for Performance Issues.
+ - Use [react-native-config](https://github.com/luggit/react-native-config) for multi stage deployment.
+ - Config analytics tools like Firebase and crashlytics.
+ - Install and config Fastlane deploy tool
