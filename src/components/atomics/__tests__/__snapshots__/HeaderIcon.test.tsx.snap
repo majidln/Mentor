@@ -1,0 +1,27 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Test for atomic HeaderIcon HeaderIcon renders correctly 1`] = `
+<View
+  accessible={true}
+  focusable={true}
+  onClick={[Function]}
+  onResponderGrant={[Function]}
+  onResponderMove={[Function]}
+  onResponderRelease={[Function]}
+  onResponderTerminate={[Function]}
+  onResponderTerminationRequest={[Function]}
+  onStartShouldSetResponder={[Function]}
+  style={
+    Object {
+      "height": "100%",
+      "justifyContent": "center",
+      "opacity": 1,
+      "paddingHorizontal": 8,
+    }
+  }
+>
+  <Text>
+    Add
+  </Text>
+</View>
+`;

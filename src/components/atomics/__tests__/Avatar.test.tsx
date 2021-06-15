@@ -20,4 +20,9 @@ describe('Test for atomic Avatar', () => {
     const tree = renderer.create(<Avatar picture={picture} />).toJSON();
     expect(tree).toMatchSnapshot();
   });
+
+  it('Avatar Snapshot without picture renders correctly', () => {
+    const tree = renderer.create(<Avatar />).toJSON();
+    expect(tree).toMatchSnapshot();
+  });
 });

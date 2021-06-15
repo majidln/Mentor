@@ -25,3 +25,5 @@ exports[`Test for atomic Avatar Avatar Snapshot renders correctly 1`] = `
   />
 </View>
 `;
+
+exports[`Test for atomic Avatar Avatar Snapshot without picture renders correctly 1`] = `<View />`;
